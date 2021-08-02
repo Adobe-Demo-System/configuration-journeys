@@ -7,6 +7,10 @@
                     "name": "default",
                     "subject": "{{profile.person.name.firstName}}, thank you for creating your account!",
                     
+                    "text": {
+                        "body": "Hypnotize Yourself Into The Ghost Of Christmas Future\nAction request\nDescription of the requested action, and an explanation of the reason for requesting this action from the user.Perform Action\nDescription of the requested action, and an explanation of the reason for requesting this action from the user.\nSometimes Typhoons Come\nOne of my favourite things I like to watch is the bloopers and outtakes that are shown of mistakes made during the making of a movie. Most DVD’s have a section of outtakes to be viewed, and they will set me off laughing, especially when you know what was supposed to happen.\nWe all make mistakes, and have many bloopers and outtakes in a lifetime. Some of them may be funny like movie bloopers, a stupid mistake and we are able to laugh at our selves.\nOther outtakes in life, however, are not funny, and are neither nor self imposed. I am referring to the tragic turns of events that happen in life that can turn our life and routine around in a moment. Accidents, disaster, the death of a loved one happen unexpectedly, and can profoundly affect our lives \nAdobe and the Adobe logo are either registered trademarks or trademarks of Adobe Systems Incorporated in the United States and/or other countries. All other trademarks are the property of their respective owners.\n© 2018 Adobe Systems Incorporated. All rights reserved.\nThis is a marketing email from Adobe Systems Incorporated, 345 Park Avenue, San Jose, CA 95110 USA. You are receiving this email because you have an active enterprise license with Adobe. Click here to unsubscribe. Please review the Adobe Privacy Policy.",
+                        "syncFromHtml": true
+                    },
                     "editorContext": {
                         "isTextSynchronized": false,
                         "authoringMode": "visual"
