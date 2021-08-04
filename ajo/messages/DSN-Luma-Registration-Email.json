@@ -2,7 +2,7 @@
   "create": {
     "messages": [
       {
-        "brandingPresetId": "%brandingPresetId%",
+        "brandingPresetId": "%-brandingPresetId-%",
         "channels": {
           "email": {
             "variants": [
@@ -23,7 +23,7 @@
             ]
           }
         },
-        "name": "DSN - Luma - Registration Email-%timestamp%",
+        "name": "DSN - Luma - Registration Email-%-timestamp-%",
         "trackingOptions": {
           "openTrackingEnabled": false,
           "clickTrackingEnabled": false
