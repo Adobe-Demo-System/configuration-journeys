@@ -20,7 +20,7 @@
       ]
     }
   },
-  "name": "DSN - Luma - Registration Email-%-timestamp-%",
+  "name": "DSN - Luma - Registration Email",
   "trackingOptions": {
     "openTrackingEnabled": false,
     "clickTrackingEnabled": false
