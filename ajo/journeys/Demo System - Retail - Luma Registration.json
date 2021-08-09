@@ -1,0 +1,822 @@
+{
+    "results": {
+        "journey": {
+            "authoringFormatVersion": "1.0",
+            "uid": "c6ab9a5b-2fb8-483e-a8d8-d4b0e5284125",
+            "name": "Demo System - Retail - Luma Registration",
+            "description": "",
+            "orgId": "%-orgId-%",
+            "tenantId": "%-tenantId-%"
+        },
+        "journeyVersion": {
+            "uid": "6c952d71-5930-4b6c-8184-41221cf16e7d",
+            "name": "Demo System - Retail - Luma Registration",
+            "journey": "c6ab9a5b-2fb8-483e-a8d8-d4b0e5284125",
+            "description": "",
+            "defaultActionExecutionTimeoutInSecs": 5,
+            "defaultEntityEnrichmentTimeoutInSecs": 5,
+            "inTest": false,
+            "initialStep": "start",
+            "isDuplicated": true,
+            "isBatch": false,
+            "steps": [
+                {
+                    "uid": "start",
+                    "nodeId": "start",
+                    "nodeName": "start",
+                    "nodeType": "start",
+                    "type": "actionStep",
+                    "transitions": [
+                        {
+                            "uid": "1400598664",
+                            "targetStep": "df379c84-32c4-40b9-8661-1e03fedf84dc",
+                            "name": "core_Registration",
+                            "elementRef": {
+                                "type": "event",
+                                "uid": "d7c4e74c-d8a6-4b66-853f-1ffb1ed376fa"
+                            },
+                            "nodeId": "c8b40450-2a46-4353-aaad-bac71a0341cc"
+                        }
+                    ]
+                },
+                {
+                    "uid": "df379c84-32c4-40b9-8661-1e03fedf84dc",
+                    "nodeId": "df379c84-32c4-40b9-8661-1e03fedf84dc",
+                    "nodeName": "Message - Welcome Email",
+                    "nodeType": "action",
+                    "action": {
+                        "uid": "cb14c77d-8a3e-4565-9e94-73466bd16930",
+                        "type": "unitaryMessageAction",
+                        "messageId": "f6f86e31-c91b-4fc3-b83a-6027bbe408e2",
+                        "profileAttributes": [
+                            "consents",
+                            "personalEmail.address",
+                            "person.name.lastName",
+                            "person.name.firstName"
+                        ],
+                        "channelOverrides": {
+                            "email": {
+                                "address": {
+                                    "type": "eventFieldRef",
+                                    "fieldRef": "json://_salesvelocity/identification/core/email",
+                                    "dataType": "string",
+                                    "transition": "1400598664"
+                                }
+                            }
+                        }
+                    },
+                    "transitions": [
+                        {
+                            "uid": "4b51db57-b91c-4c3b-beca-396e4b713ea3",
+                            "targetStep": "3d0afc1a-478a-47de-9f46-ca799d0ab2e6"
+                        }
+                    ]
+                },
+                {
+                    "uid": "3d0afc1a-478a-47de-9f46-ca799d0ab2e6",
+                    "nodeId": "3d0afc1a-478a-47de-9f46-ca799d0ab2e6",
+                    "nodeName": "End",
+                    "nodeType": "end",
+                    "transitions": []
+                }
+            ],
+            "ui": {
+                "nodes": {
+                    "start": {
+                        "id": "start",
+                        "x": 20,
+                        "y": 100,
+                        "size": 8,
+                        "label": "start",
+                        "icon": "",
+                        "name": "",
+                        "type": "start"
+                    },
+                    "3d0afc1a-478a-47de-9f46-ca799d0ab2e6": {
+                        "id": "3d0afc1a-478a-47de-9f46-ca799d0ab2e6",
+                        "x": 554,
+                        "y": 92,
+                        "size": 48,
+                        "label": "End",
+                        "icon": "stopCircle",
+                        "name": "end",
+                        "type": "end",
+                        "data": {
+                            "name": "End",
+                            "label": ""
+                        }
+                    },
+                    "c8b40450-2a46-4353-aaad-bac71a0341cc": {
+                        "id": "c8b40450-2a46-4353-aaad-bac71a0341cc",
+                        "x": 146,
+                        "y": 90,
+                        "size": 48,
+                        "label": "core_Registration",
+                        "icon": "event",
+                        "name": "d7c4e74c-d8a6-4b66-853f-1ffb1ed376fa",
+                        "type": "event",
+                        "data": {
+                            "label": "",
+                            "description": "",
+                            "uid": "d7c4e74c-d8a6-4b66-853f-1ffb1ed376fa",
+                            "eventId": "8a8c4f309de88da7abb25f06569d4f711c6887ad28a201cdf69e7d89763121e8"
+                        }
+                    },
+                    "df379c84-32c4-40b9-8661-1e03fedf84dc": {
+                        "id": "df379c84-32c4-40b9-8661-1e03fedf84dc",
+                        "x": 361,
+                        "y": 88,
+                        "size": 48,
+                        "label": "Message",
+                        "icon": "messageAssist",
+                        "name": "messageAssist",
+                        "type": "action",
+                        "data": {
+                            "nodeType": "action",
+                            "actionType": "messageAssist",
+                            "actionUID": "cb14c77d-8a3e-4565-9e94-73466bd16930",
+                            "label": "Welcome Email",
+                            "description": "",
+                            "message": "f6f86e31-c91b-4fc3-b83a-6027bbe408e2",
+                            "messageLabel": "DSN - Luma - Registration Email",
+                            "profileAttributes": [
+                                "person.name.lastName",
+                                "person.name.firstName"
+                            ],
+                            "attributes": [
+                                "consents",
+                                "personalEmail.address",
+                                "person.name.lastName",
+                                "person.name.firstName"
+                            ],
+                            "channelOverrides": [
+                                {
+                                    "name": "address",
+                                    "expression": {
+                                        "plainText": "@{1400598664._salesvelocity.identification.core.email}",
+                                        "expression": {
+                                            "type": "eventFieldRef",
+                                            "fieldRef": "json://_salesvelocity/identification/core/email",
+                                            "dataType": "string",
+                                            "transition": "1400598664"
+                                        },
+                                        "parameters": []
+                                    },
+                                    "channel": "email",
+                                    "isDefaultValue": false
+                                }
+                            ],
+                            "fallbackOnTimeoutOrError": false,
+                            "isBurstCompatible": false
+                        }
+                    }
+                },
+                "edges": {
+                    "fd64b734-9630-4b3f-ad3f-7e1192bc7f93": {
+                        "id": "fd64b734-9630-4b3f-ad3f-7e1192bc7f93",
+                        "label": "",
+                        "source": {
+                            "x": 20,
+                            "y": 100,
+                            "size": 8,
+                            "elementId": "start"
+                        },
+                        "target": {
+                            "x": 146,
+                            "y": 90,
+                            "size": 48,
+                            "elementId": "c8b40450-2a46-4353-aaad-bac71a0341cc"
+                        },
+                        "connected": true,
+                        "labelBoxWidth": 0
+                    },
+                    "897ab471-aa37-4927-a172-d39743acc321": {
+                        "id": "897ab471-aa37-4927-a172-d39743acc321",
+                        "label": "",
+                        "source": {
+                            "x": 146,
+                            "y": 90,
+                            "size": 48,
+                            "elementId": "c8b40450-2a46-4353-aaad-bac71a0341cc"
+                        },
+                        "target": {
+                            "x": 361,
+                            "y": 88,
+                            "size": 48,
+                            "elementId": "df379c84-32c4-40b9-8661-1e03fedf84dc"
+                        },
+                        "connected": true,
+                        "labelBoxWidth": 0
+                    },
+                    "846f4e98-6324-44bc-a3f9-d3315802785c": {
+                        "id": "846f4e98-6324-44bc-a3f9-d3315802785c",
+                        "label": "",
+                        "source": {
+                            "x": 361,
+                            "y": 88,
+                            "size": 48,
+                            "elementId": "df379c84-32c4-40b9-8661-1e03fedf84dc"
+                        },
+                        "target": {
+                            "x": 554,
+                            "y": 92,
+                            "size": 48,
+                            "elementId": "3d0afc1a-478a-47de-9f46-ca799d0ab2e6"
+                        },
+                        "connected": true,
+                        "labelBoxWidth": 0
+                    }
+                }
+            },
+            "keyNamespace": "ECID",
+            "timezone": {
+                "useProfileTimezone": true,
+                "zoneId": "Etc/GMT+7"
+            },
+            "isBurst": false,
+            "reentrancePolicy": "reentrance",
+            "authoringFormatVersion": "1.0",
+            "orgId": "%-orgId-%",
+            "tenantId": "%-tenantId-%"
+        },
+        "events": [
+            {
+                "authoringFormatVersion": "1.0",
+                "eventType": "dcsExternal",
+                "name": "core_Registration",
+                "description": "",
+                "namespaceId": "ECID",
+                "eventId": "8a8c4f309de88da7abb25f06569d4f711c6887ad28a201cdf69e7d89763121e8",
+                "eventKeyFormula": {
+                    "type": "eventFieldRef",
+                    "fieldRef": "json://_%-tenantId-%/identification/core/ecid",
+                    "dataType": "string",
+                    "event": "8a8c4f309de88da7abb25f06569d4f711c6887ad28a201cdf69e7d89763121e8"
+                },
+                "ui": {
+                    "expression": {
+                        "condition": "",
+                        "eventKeyFormula": "@{8a8c4f309de88da7abb25f06569d4f711c6887ad28a201cdf69e7d89763121e8._salesvelocity.identification.core.ecid}"
+                    }
+                },
+                "fields": {
+                    "experienceevent": {
+                        "dataType": "composite",
+                        "description": "Demo System - Event Schema for Website (Global v1.1)",
+                        "title": "Demo System - Event Schema for Website (Global v1.1)",
+                        "xdmEntity": {
+                            "altId": "_salesvelocity.schemas.d9b88a044ad96154637965a97ed63c7b20bdf2ab3b4f642e",
+                            "classAltId": "_xdm.context.experienceevent",
+                            "classVersion": 1,
+                            "displayName": "Demo System - Event Schema for Website (Global v1.1)",
+                            "id": "https://ns.adobe.com/salesvelocity/schemas/d9b88a044ad96154637965a97ed63c7b20bdf2ab3b4f642e",
+                            "isTimeSeries": true,
+                            "type": "schema",
+                            "version": 1,
+                            "relatedClassAltId": "_xdm.context.profile",
+                            "relatedClassVersion": 1
+                        },
+                        "fields": {
+                            "_salesvelocity": {
+                                "dataType": "composite",
+                                "mandatory": true,
+                                "fields": {
+                                    "identification": {
+                                        "dataType": "composite",
+                                        "title": "Identification",
+                                        "description": "",
+                                        "mandatory": true,
+                                        "fields": {
+                                            "core": {
+                                                "dataType": "composite",
+                                                "title": "core",
+                                                "description": "",
+                                                "mandatory": true,
+                                                "fields": {
+                                                    "biometricId": {
+                                                        "dataType": "string",
+                                                        "title": "biometricId",
+                                                        "description": "",
+                                                        "isIdentity": true,
+                                                        "namespace": "biometricId"
+                                                    },
+                                                    "crmId": {
+                                                        "dataType": "string",
+                                                        "title": "crmId",
+                                                        "description": "",
+                                                        "isIdentity": true,
+                                                        "namespace": "crmId"
+                                                    },
+                                                    "email": {
+                                                        "dataType": "string",
+                                                        "title": "email",
+                                                        "description": "",
+                                                        "isIdentity": true,
+                                                        "namespace": "email"
+                                                    },
+                                                    "gaid": {
+                                                        "dataType": "string",
+                                                        "title": "GAID",
+                                                        "description": "",
+                                                        "isIdentity": true,
+                                                        "namespace": "GAID"
+                                                    },
+                                                    "phoneNumber": {
+                                                        "dataType": "string",
+                                                        "title": "phoneNumber",
+                                                        "description": "",
+                                                        "isIdentity": true,
+                                                        "namespace": "mobileNb"
+                                                    },
+                                                    "ecid": {
+                                                        "dataType": "string",
+                                                        "title": "ecid",
+                                                        "description": "ecid",
+                                                        "mandatory": true,
+                                                        "isIdentity": true,
+                                                        "isPrimaryIdentity": true,
+                                                        "namespace": "ECID"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "productListItems": {
+                                "dataType": "composite",
+                                "collection": true,
+                                "title": "Product list items",
+                                "description": "A list of items representing a product selected by a customer with specific options and pricing that are for that usage context at a specific point of time and may differ from the product record.",
+                                "fields": {
+                                    "_salesvelocity": {
+                                        "dataType": "composite",
+                                        "fields": {
+                                            "core": {
+                                                "dataType": "composite",
+                                                "title": "core",
+                                                "description": "",
+                                                "fields": {
+                                                    "description": {
+                                                        "dataType": "string",
+                                                        "title": "Description",
+                                                        "description": ""
+                                                    },
+                                                    "imageURL": {
+                                                        "dataType": "string",
+                                                        "title": "Image URL",
+                                                        "description": ""
+                                                    },
+                                                    "mainCategory": {
+                                                        "dataType": "string",
+                                                        "title": "Main Category",
+                                                        "description": ""
+                                                    },
+                                                    "productURL": {
+                                                        "dataType": "string",
+                                                        "title": "Product URL",
+                                                        "description": ""
+                                                    },
+                                                    "subCategory": {
+                                                        "dataType": "string",
+                                                        "title": "Sub Category",
+                                                        "description": ""
+                                                    }
+                                                }
+                                            },
+                                            "retail": {
+                                                "dataType": "composite",
+                                                "fields": {
+                                                    "productDetails": {
+                                                        "dataType": "composite",
+                                                        "title": "Product Details",
+                                                        "description": "",
+                                                        "fields": {
+                                                            "color": {
+                                                                "dataType": "string",
+                                                                "title": "Color",
+                                                                "description": ""
+                                                            },
+                                                            "size": {
+                                                                "dataType": "string",
+                                                                "title": "Size",
+                                                                "description": ""
+                                                            },
+                                                            "targetGender": {
+                                                                "dataType": "string",
+                                                                "title": "Target Gender",
+                                                                "description": ""
+                                                            }
+                                                        }
+                                                    },
+                                                    "productSpecs": {
+                                                        "dataType": "composite",
+                                                        "title": "Product Specifications",
+                                                        "description": "",
+                                                        "fields": {
+                                                            "color": {
+                                                                "dataType": "string",
+                                                                "title": "Color",
+                                                                "description": ""
+                                                            },
+                                                            "fabric": {
+                                                                "dataType": "string",
+                                                                "title": "Fabric",
+                                                                "description": ""
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "_id": {
+                                        "dataType": "string",
+                                        "title": "Line item ID.",
+                                        "description": "The line item identifier for this product entry. The product itself is identified through `xdm:product`."
+                                    },
+                                    "SKU": {
+                                        "dataType": "string",
+                                        "title": "SKU",
+                                        "description": "Stock keeping unit (SKU), the unique identifier for a product defined by the vendor."
+                                    },
+                                    "currencyCode": {
+                                        "dataType": "string",
+                                        "title": "Currency code",
+                                        "description": "The ISO 4217 alphabetic currency code used for pricing the product."
+                                    },
+                                    "name": {
+                                        "dataType": "string",
+                                        "title": "Name",
+                                        "description": "The display name for the product as presented to the user for this product view."
+                                    },
+                                    "priceTotal": {
+                                        "dataType": "decimal",
+                                        "title": "Price total",
+                                        "description": "The total price for the product line item."
+                                    },
+                                    "product": {
+                                        "dataType": "string",
+                                        "title": "Product",
+                                        "description": "The XDM identifier of the product itself."
+                                    },
+                                    "productAddMethod": {
+                                        "dataType": "string",
+                                        "title": "Product add method",
+                                        "description": "The method that was used to add a product item to the list by the visitor. Set with product list add metrics."
+                                    },
+                                    "quantity": {
+                                        "dataType": "integer",
+                                        "title": "Quantity",
+                                        "description": "The number of units the customer has indicated they require of the product."
+                                    }
+                                }
+                            },
+                            "commerce": {
+                                "dataType": "composite",
+                                "title": "Commerce",
+                                "description": "Commerce specific data related to this event.",
+                                "fields": {
+                                    "cartAbandons": {
+                                        "dataType": "composite",
+                                        "description": "A product list has been identified as no longer accessible or purchasable by the user.",
+                                        "fields": {
+                                            "id": {
+                                                "dataType": "string",
+                                                "title": "Unique Identifier",
+                                                "description": "Unique identifier of the measure. In cases of data collection using lossy communication channels, such as mobile apps or websites with offline functionality, where transmission of measures cannot be ensured, this property contains a client-generated, unique ID of the measure taken. It is best practice to make this sufficiently long to ensure enough entropy. Additionally, if information such as time stamp, device ID, IP, or MAC address, or other potentially user-identifying values are incorporated in the generation of the xdm:id, the result should be hashed, so that no PII is encoded in the value, as the goal is not to identify user or device, but the specific measure in time."
+                                            },
+                                            "value": {
+                                                "dataType": "decimal",
+                                                "description": "The quantifiable value of this measure.",
+                                                "mandatory": true
+                                            }
+                                        }
+                                    },
+                                    "checkouts": {
+                                        "dataType": "composite",
+                                        "description": "An action during a checkout process of a product list, there can be more than one checkout event if there are multiple steps in a checkout process. If there are multiple steps the event time information and referenced page or experience is used to identify the step individual events represent in order.",
+                                        "fields": {
+                                            "id": {
+                                                "dataType": "string",
+                                                "title": "Unique Identifier",
+                                                "description": "Unique identifier of the measure. In cases of data collection using lossy communication channels, such as mobile apps or websites with offline functionality, where transmission of measures cannot be ensured, this property contains a client-generated, unique ID of the measure taken. It is best practice to make this sufficiently long to ensure enough entropy. Additionally, if information such as time stamp, device ID, IP, or MAC address, or other potentially user-identifying values are incorporated in the generation of the xdm:id, the result should be hashed, so that no PII is encoded in the value, as the goal is not to identify user or device, but the specific measure in time."
+                                            },
+                                            "value": {
+                                                "dataType": "decimal",
+                                                "description": "The quantifiable value of this measure.",
+                                                "mandatory": true
+                                            }
+                                        }
+                                    },
+                                    "inStorePurchase": {
+                                        "dataType": "composite",
+                                        "description": "'inStore' purchase is saved for analytics use.",
+                                        "fields": {
+                                            "value": {
+                                                "dataType": "decimal",
+                                                "description": "The quantifiable value of this measure.",
+                                                "mandatory": true
+                                            }
+                                        }
+                                    },
+                                    "productListAdds": {
+                                        "dataType": "composite",
+                                        "description": "Addition of a product to the product list, for example a product is added to a shopping cart.",
+                                        "fields": {
+                                            "id": {
+                                                "dataType": "string",
+                                                "title": "Unique Identifier",
+                                                "description": "Unique identifier of the measure. In cases of data collection using lossy communication channels, such as mobile apps or websites with offline functionality, where transmission of measures cannot be ensured, this property contains a client-generated, unique ID of the measure taken. It is best practice to make this sufficiently long to ensure enough entropy. Additionally, if information such as time stamp, device ID, IP, or MAC address, or other potentially user-identifying values are incorporated in the generation of the xdm:id, the result should be hashed, so that no PII is encoded in the value, as the goal is not to identify user or device, but the specific measure in time."
+                                            },
+                                            "value": {
+                                                "dataType": "decimal",
+                                                "description": "The quantifiable value of this measure.",
+                                                "mandatory": true
+                                            }
+                                        }
+                                    },
+                                    "productListOpens": {
+                                        "dataType": "composite",
+                                        "description": "Initializations of a new product list, for example a shopping cart is created.",
+                                        "fields": {
+                                            "id": {
+                                                "dataType": "string",
+                                                "title": "Unique Identifier",
+                                                "description": "Unique identifier of the measure. In cases of data collection using lossy communication channels, such as mobile apps or websites with offline functionality, where transmission of measures cannot be ensured, this property contains a client-generated, unique ID of the measure taken. It is best practice to make this sufficiently long to ensure enough entropy. Additionally, if information such as time stamp, device ID, IP, or MAC address, or other potentially user-identifying values are incorporated in the generation of the xdm:id, the result should be hashed, so that no PII is encoded in the value, as the goal is not to identify user or device, but the specific measure in time."
+                                            },
+                                            "value": {
+                                                "dataType": "decimal",
+                                                "description": "The quantifiable value of this measure.",
+                                                "mandatory": true
+                                            }
+                                        }
+                                    },
+                                    "productListRemovals": {
+                                        "dataType": "composite",
+                                        "description": "Removal or removals of a product entry from a product list, for example a product is removed from a shopping cart.",
+                                        "fields": {
+                                            "id": {
+                                                "dataType": "string",
+                                                "title": "Unique Identifier",
+                                                "description": "Unique identifier of the measure. In cases of data collection using lossy communication channels, such as mobile apps or websites with offline functionality, where transmission of measures cannot be ensured, this property contains a client-generated, unique ID of the measure taken. It is best practice to make this sufficiently long to ensure enough entropy. Additionally, if information such as time stamp, device ID, IP, or MAC address, or other potentially user-identifying values are incorporated in the generation of the xdm:id, the result should be hashed, so that no PII is encoded in the value, as the goal is not to identify user or device, but the specific measure in time."
+                                            },
+                                            "value": {
+                                                "dataType": "decimal",
+                                                "description": "The quantifiable value of this measure.",
+                                                "mandatory": true
+                                            }
+                                        }
+                                    },
+                                    "productListReopens": {
+                                        "dataType": "composite",
+                                        "description": "A product list that was no longer accessible (abandoned) has been re-activated by the user. Example via a re-marketing activity.",
+                                        "fields": {
+                                            "id": {
+                                                "dataType": "string",
+                                                "title": "Unique Identifier",
+                                                "description": "Unique identifier of the measure. In cases of data collection using lossy communication channels, such as mobile apps or websites with offline functionality, where transmission of measures cannot be ensured, this property contains a client-generated, unique ID of the measure taken. It is best practice to make this sufficiently long to ensure enough entropy. Additionally, if information such as time stamp, device ID, IP, or MAC address, or other potentially user-identifying values are incorporated in the generation of the xdm:id, the result should be hashed, so that no PII is encoded in the value, as the goal is not to identify user or device, but the specific measure in time."
+                                            },
+                                            "value": {
+                                                "dataType": "decimal",
+                                                "description": "The quantifiable value of this measure.",
+                                                "mandatory": true
+                                            }
+                                        }
+                                    },
+                                    "productListViews": {
+                                        "dataType": "composite",
+                                        "description": "View or views of a product-list has occurred.",
+                                        "fields": {
+                                            "id": {
+                                                "dataType": "string",
+                                                "title": "Unique Identifier",
+                                                "description": "Unique identifier of the measure. In cases of data collection using lossy communication channels, such as mobile apps or websites with offline functionality, where transmission of measures cannot be ensured, this property contains a client-generated, unique ID of the measure taken. It is best practice to make this sufficiently long to ensure enough entropy. Additionally, if information such as time stamp, device ID, IP, or MAC address, or other potentially user-identifying values are incorporated in the generation of the xdm:id, the result should be hashed, so that no PII is encoded in the value, as the goal is not to identify user or device, but the specific measure in time."
+                                            },
+                                            "value": {
+                                                "dataType": "decimal",
+                                                "description": "The quantifiable value of this measure.",
+                                                "mandatory": true
+                                            }
+                                        }
+                                    },
+                                    "productViews": {
+                                        "dataType": "composite",
+                                        "description": "View or views of a product have occurred.",
+                                        "fields": {
+                                            "id": {
+                                                "dataType": "string",
+                                                "title": "Unique Identifier",
+                                                "description": "Unique identifier of the measure. In cases of data collection using lossy communication channels, such as mobile apps or websites with offline functionality, where transmission of measures cannot be ensured, this property contains a client-generated, unique ID of the measure taken. It is best practice to make this sufficiently long to ensure enough entropy. Additionally, if information such as time stamp, device ID, IP, or MAC address, or other potentially user-identifying values are incorporated in the generation of the xdm:id, the result should be hashed, so that no PII is encoded in the value, as the goal is not to identify user or device, but the specific measure in time."
+                                            },
+                                            "value": {
+                                                "dataType": "decimal",
+                                                "description": "The quantifiable value of this measure.",
+                                                "mandatory": true
+                                            }
+                                        }
+                                    },
+                                    "purchases": {
+                                        "dataType": "composite",
+                                        "description": "An order has been accepted. Purchase is the only required action in a commerce conversion. Purchase must have a product list referenced.",
+                                        "fields": {
+                                            "value": {
+                                                "dataType": "decimal",
+                                                "description": "The quantifiable value of this measure.",
+                                                "mandatory": true
+                                            }
+                                        }
+                                    },
+                                    "saveForLaters": {
+                                        "dataType": "composite",
+                                        "description": "Product list is saved for future use, for example a product wish list.",
+                                        "fields": {
+                                            "value": {
+                                                "dataType": "decimal",
+                                                "description": "The quantifiable value of this measure.",
+                                                "mandatory": true
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "_id": {
+                                "dataType": "string",
+                                "title": "Identifier",
+                                "description": "A unique identifier for the time-series event.",
+                                "mandatory": true
+                            },
+                            "_experience": {
+                                "dataType": "composite",
+                                "fields": {
+                                    "campaign": {
+                                        "dataType": "composite",
+                                        "fields": {
+                                            "orchestration": {
+                                                "dataType": "composite",
+                                                "title": "Campaign Orchestration for creating user journey.",
+                                                "fields": {
+                                                    "eventID": {
+                                                        "dataType": "string",
+                                                        "title": "Event ID",
+                                                        "description": "ID that identifies the event sent by the data source. This is used by Campaign orchestration to identify the event without inspecting its payload to determine which action should be triggered when the event is received. The value is automatically generated in Campaign at event creation time, it is globally unique across organizations."
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "timestamp": {
+                                "dataType": "dateTime",
+                                "title": "Timestamp",
+                                "description": "The time when an event or observation occurred.",
+                                "mandatory": true
+                            },
+                            "web": {
+                                "dataType": "composite",
+                                "title": "Web",
+                                "description": "The information related to web page and link of the ExperienceEvent.",
+                                "fields": {
+                                    "webInteraction": {
+                                        "dataType": "composite",
+                                        "title": "Web interaction",
+                                        "description": "Details about the web link or URL that corresponds to where the interaction occurred.",
+                                        "fields": {
+                                            "URL": {
+                                                "dataType": "string",
+                                                "title": "URL",
+                                                "description": "The actual link or URL used for this web interaction."
+                                            },
+                                            "linkClicks": {
+                                                "dataType": "composite",
+                                                "title": "Link Clicks",
+                                                "description": "Click of a web link has occurred.",
+                                                "fields": {
+                                                    "id": {
+                                                        "dataType": "string",
+                                                        "title": "Unique Identifier",
+                                                        "description": "Unique identifier of the measure. In cases of data collection using lossy communication channels, such as mobile apps or websites with offline functionality, where transmission of measures cannot be ensured, this property contains a client-generated, unique ID of the measure taken. It is best practice to make this sufficiently long to ensure enough entropy. Additionally, if information such as time stamp, device ID, IP, or MAC address, or other potentially user-identifying values are incorporated in the generation of the xdm:id, the result should be hashed, so that no PII is encoded in the value, as the goal is not to identify user or device, but the specific measure in time."
+                                                    },
+                                                    "value": {
+                                                        "dataType": "decimal",
+                                                        "description": "The quantifiable value of this measure.",
+                                                        "mandatory": true
+                                                    }
+                                                }
+                                            },
+                                            "name": {
+                                                "dataType": "string",
+                                                "title": "Name",
+                                                "description": "The normative name used for this web link, used for classification purposes."
+                                            },
+                                            "type": {
+                                                "dataType": "string",
+                                                "title": "Type",
+                                                "description": "The link type.",
+                                                "allowedValues": [
+                                                    "download",
+                                                    "exit",
+                                                    "other"
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    "webPageDetails": {
+                                        "dataType": "composite",
+                                        "title": "Web page details",
+                                        "description": "Details about the web page where the web interaction occurred.",
+                                        "fields": {
+                                            "URL": {
+                                                "dataType": "string",
+                                                "title": "URL",
+                                                "description": "The normative or usual URL of the web page.  This may or may not be the actual URL used to reach the page, which would be recorded using `Web Link`."
+                                            },
+                                            "isErrorPage": {
+                                                "dataType": "boolean",
+                                                "title": "Is error page",
+                                                "description": "Flag that indicate if the page is error page or not.  Error here is defined by the application, and may nor may not correspond to a page served with an HTTP error code.  This flag is used to broadly categorize web interactions."
+                                            },
+                                            "isHomePage": {
+                                                "dataType": "boolean",
+                                                "title": "Is home page",
+                                                "description": "Flag that indicate if the page is the site home page or not.  The definition of home page is determined by the application, but is commonly used to designate a top level landing page or common site entry point.  This flag is used to broadly categorize web interactions."
+                                            },
+                                            "name": {
+                                                "dataType": "string",
+                                                "title": "Name",
+                                                "description": "The normative name of the web page. This name is not necessarily the page title or directly associate with page content, but is used to organize a site's pages for classification purposes."
+                                            },
+                                            "pageViews": {
+                                                "dataType": "composite",
+                                                "title": "Page Views",
+                                                "description": "View(s) of a webpage has occurred.",
+                                                "fields": {
+                                                    "id": {
+                                                        "dataType": "string",
+                                                        "title": "Unique Identifier",
+                                                        "description": "Unique identifier of the measure. In cases of data collection using lossy communication channels, such as mobile apps or websites with offline functionality, where transmission of measures cannot be ensured, this property contains a client-generated, unique ID of the measure taken. It is best practice to make this sufficiently long to ensure enough entropy. Additionally, if information such as time stamp, device ID, IP, or MAC address, or other potentially user-identifying values are incorporated in the generation of the xdm:id, the result should be hashed, so that no PII is encoded in the value, as the goal is not to identify user or device, but the specific measure in time."
+                                                    },
+                                                    "value": {
+                                                        "dataType": "decimal",
+                                                        "description": "The quantifiable value of this measure.",
+                                                        "mandatory": true
+                                                    }
+                                                }
+                                            },
+                                            "server": {
+                                                "dataType": "string",
+                                                "title": "Server",
+                                                "description": "The normative or usual server that hosts the web page.  This may or may not be the host or server that actually served the page interaction, but is used for classification purposes."
+                                            },
+                                            "siteSection": {
+                                                "dataType": "string",
+                                                "title": "Site section",
+                                                "description": "The normative name of the site section where this web page resides, which may be used to classify or categorize the interaction."
+                                            }
+                                        }
+                                    },
+                                    "webReferrer": {
+                                        "dataType": "composite",
+                                        "title": "Web referrer",
+                                        "description": "The referrer of a web interaction, which is the URL a visitor came from immediately before the current web interaction was recorded.",
+                                        "fields": {
+                                            "URL": {
+                                                "dataType": "string",
+                                                "title": "URL",
+                                                "description": "The referrer URL."
+                                            },
+                                            "type": {
+                                                "dataType": "string",
+                                                "title": "Type",
+                                                "description": "The referrer type.",
+                                                "allowedValues": [
+                                                    "internal",
+                                                    "external",
+                                                    "search_engine",
+                                                    "typed_bookmarked",
+                                                    "email",
+                                                    "social",
+                                                    "unknown",
+                                                    "usenet"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "orgId": "%-orgId-%",
+                "tenantId": "%-tenantId-%",
+                "eventIdType": "systemGenerated",
+                "eventCategory": "unitary",
+                "uid": "d7c4e74c-d8a6-4b66-853f-1ffb1ed376fa"
+            }
+        ],
+        "dataProviders": [],
+        "dataEntities": [],
+        "customActions": []
+    }
+}
