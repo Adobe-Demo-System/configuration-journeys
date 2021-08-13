@@ -1,675 +1,675 @@
 {
-    "results": {
-        "journey": {
-            "authoringFormatVersion": "1.0",
-            "uid": "599fde98-ce5e-4db1-a678-e82fb05efee7",
-            "name": "Luma - Website - Account Creation",
-            "description": "",
-            "orgId": "%-orgId-%",
-            "tenantId": "%-tenantId-%"
+  "results": {
+    "journey": {
+      "authoringFormatVersion": "1.0",
+      "uid": "599fde98-ce5e-4db1-a678-e82fb05efee7",
+      "name": "Luma - Website - Account Creation",
+      "description": "",
+      "orgId": "%-orgId-%",
+      "tenantId": "%-tenantId-%"
+    },
+    "journeyVersion": {
+      "uid": "a38c7747-7704-4fdf-8534-3ad2c2f27358",
+      "name": "Luma - Website - Account Creation",
+      "journey": "599fde98-ce5e-4db1-a678-e82fb05efee7",
+      "description": "",
+      "defaultActionExecutionTimeoutInSecs": 5,
+      "defaultEntityEnrichmentTimeoutInSecs": 5,
+      "inTest": true,
+      "initialStep": "start",
+      "isDuplicated": false,
+      "isBatch": false,
+      "steps": [
+        {
+          "uid": "start",
+          "nodeId": "start",
+          "nodeName": "start",
+          "nodeType": "start",
+          "type": "actionStep",
+          "transitions": [
+            {
+              "uid": "2129403084",
+              "targetStep": "b1875f6f-3a02-4e8c-ad30-265c438cab7b_5da9e34a-668e-4b26-acc4-fe555f3792b0",
+              "name": "Luma_AccountCreation",
+              "elementRef": {
+                "type": "event",
+                "uid": "a02b5bda-b7c2-4e5a-bca3-fec1632c6c38"
+              },
+              "nodeId": "78819947-46b9-4a95-98c1-7436a81f84ce"
+            }
+          ]
         },
-        "journeyVersion": {
-            "uid": "a38c7747-7704-4fdf-8534-3ad2c2f27358",
-            "name": "Luma - Website - Account Creation",
-            "journey": "599fde98-ce5e-4db1-a678-e82fb05efee7",
-            "description": "",
-            "defaultActionExecutionTimeoutInSecs": 5,
-            "defaultEntityEnrichmentTimeoutInSecs": 5,
-            "inTest": true,
-            "initialStep": "start",
-            "isDuplicated": false,
-            "isBatch": false,
-            "steps": [
-                {
-                    "uid": "start",
-                    "nodeId": "start",
-                    "nodeName": "start",
-                    "nodeType": "start",
-                    "type": "actionStep",
-                    "transitions": [
-                        {
-                            "uid": "2129403084",
-                            "targetStep": "b1875f6f-3a02-4e8c-ad30-265c438cab7b_5da9e34a-668e-4b26-acc4-fe555f3792b0",
-                            "name": "Luma_AccountCreation",
-                            "elementRef": {
-                                "type": "event",
-                                "uid": "a02b5bda-b7c2-4e5a-bca3-fec1632c6c38"
-                            },
-                            "nodeId": "78819947-46b9-4a95-98c1-7436a81f84ce"
-                        }
-                    ]
-                },
-                {
-                    "uid": "b1875f6f-3a02-4e8c-ad30-265c438cab7b_5da9e34a-668e-4b26-acc4-fe555f3792b0",
-                    "nodeId": "b1875f6f-3a02-4e8c-ad30-265c438cab7b_5da9e34a-668e-4b26-acc4-fe555f3792b0",
-                    "nodeName": "WebhookAction",
-                    "nodeType": "action",
-                    "name": "WebhookAction",
-                    "type": "actionStep",
-                    "action": {
-                        "uid": "5fe50cd1-e85c-4c53-b676-e4ed64032439",
-                        "type": "customActionRef",
-                        "elementRef": {
-                            "type": "customAction",
-                            "uid": "5da9e34a-668e-4b26-acc4-fe555f3792b0"
-                        },
-                        "paramMappings": [
-                            {
-                                "paramPath": "request/httpContent/jsonValue/body/email",
-                                "expression": {
-                                    "type": "eventFieldRef",
-                                    "fieldRef": "json://_%-tenantId-%/identification/core/email",
-                                    "dataType": "string",
-                                    "transition": "2129403084"
-                                }
-                            },
-                            {
-                                "paramPath": "request/httpContent/jsonValue/body/first name",
-                                "expression": {
-                                    "dataType": "string",
-                                    "fieldRef": "json://_%-tenantId-%/identification/core/ecid",
-                                    "transition": "2129403084",
-                                    "type": "eventFieldRef"
-                                }
-                            },
-                            {
-                                "paramPath": "request/httpContent/jsonValue/body/last name",
-                                "expression": {
-                                    "dataType": "string",
-                                    "type": "constant",
-                                    "value": "Account Creation Flow"
-                                }
-                            }
-                        ]
-                    },
-                    "transitions": [
-                        {
-                            "uid": "a8a0d90b-32cc-469f-be7b-f1cab05ebe4f",
-                            "targetStep": "383bba12-727f-4adb-8536-fa50b6f6c8d2"
-                        }
-                    ]
-                },
-                {
-                    "uid": "383bba12-727f-4adb-8536-fa50b6f6c8d2",
-                    "nodeId": "383bba12-727f-4adb-8536-fa50b6f6c8d2",
-                    "nodeName": "Wait",
-                    "nodeType": "timer",
-                    "schedulerActions": [
-                        {
-                            "type": "scheduledNotification",
-                            "uid": "1a68f947-e0eb-4462-9723-3ca438cfc594",
-                            "rule": {
-                                "type": "delay",
-                                "delay": "PT10S"
-                            }
-                        }
-                    ],
-                    "transitions": [
-                        {
-                            "uid": "b3f475d3-6990-48f3-b929-33a7979bd8d0",
-                            "targetStep": "b25aa3b6-df35-4e8a-b5e3-01726699e852",
-                            "name": "Wait",
-                            "eventId": "scheduledNotificationReceived",
-                            "actionUID": "1a68f947-e0eb-4462-9723-3ca438cfc594",
-                            "nodeId": "383bba12-727f-4adb-8536-fa50b6f6c8d2"
-                        }
-                    ]
-                },
-                {
-                    "uid": "b25aa3b6-df35-4e8a-b5e3-01726699e852",
-                    "nodeId": "b25aa3b6-df35-4e8a-b5e3-01726699e852",
-                    "nodeName": "Message - Account Creation Confirmation",
-                    "nodeType": "action",
-                    "action": {
-                        "uid": "4fd40edb-e1b3-4525-b46f-1e0c382f4950",
-                        "type": "unitaryMessageAction",
-                        "messageId": "7897eb0c-6f89-4c85-8493-32ed19d1fce8",
-                        "profileAttributes": [
-                            "person.name.firstName",
-                            "_%-tenantId-%.identification.core.loyaltyId",
-                            "consents",
-                            "_%-tenantId-%.identification",
-                            "personalEmail.address"
-                        ],
-                        "channelOverrides": {}
-                    },
-                    "transitions": [
-                        {
-                            "uid": "0970e8a2-f88e-42a1-a8be-f425ad659a56",
-                            "targetStep": "213b735b-6351-4603-8930-2d8b4fc4cf0f"
-                        }
-                    ]
-                },
-                {
-                    "uid": "213b735b-6351-4603-8930-2d8b4fc4cf0f",
-                    "nodeId": "213b735b-6351-4603-8930-2d8b4fc4cf0f",
-                    "nodeName": "Message - New Summer Collection",
-                    "nodeType": "action",
-                    "action": {
-                        "uid": "be5652b8-ce8c-4f1f-83da-d2c894eefbeb",
-                        "type": "unitaryMessageAction",
-                        "messageId": "98532110-a66a-4766-888b-aea1fa7665e0",
-                        "profileAttributes": [
-                            "person.name.firstName",
-                            "segmentMembership.ups.2c9b14f1-e77f-4019-8772-66a2eb7b14c5.status",
-                            "segmentMembership.ups.b8852db9-1948-46f4-81ef-088eb5afa57f.status",
-                            "consents",
-                            "segmentMembership.ups.90f87dc3-868a-45bf-a6e0-2131196c4478.status",
-                            "segmentMembership.ups.bfe80623-d9df-425c-ad95-173091119238.status",
-                            "personalEmail.address"
-                        ],
-                        "channelOverrides": {}
-                    },
-                    "transitions": [
-                        {
-                            "uid": "800632e2-527b-4275-85b8-aff33ba465e3",
-                            "targetStep": "cc076c0a-4b6d-4a81-bb44-a7ec5b6d77f2"
-                        }
-                    ]
-                },
-                {
-                    "uid": "cc076c0a-4b6d-4a81-bb44-a7ec5b6d77f2",
-                    "nodeId": "cc076c0a-4b6d-4a81-bb44-a7ec5b6d77f2",
-                    "nodeName": "End",
-                    "nodeType": "end",
-                    "transitions": []
+        {
+          "uid": "b1875f6f-3a02-4e8c-ad30-265c438cab7b_5da9e34a-668e-4b26-acc4-fe555f3792b0",
+          "nodeId": "b1875f6f-3a02-4e8c-ad30-265c438cab7b_5da9e34a-668e-4b26-acc4-fe555f3792b0",
+          "nodeName": "WebhookAction",
+          "nodeType": "action",
+          "name": "WebhookAction",
+          "type": "actionStep",
+          "action": {
+            "uid": "5fe50cd1-e85c-4c53-b676-e4ed64032439",
+            "type": "customActionRef",
+            "elementRef": {
+              "type": "customAction",
+              "uid": "5da9e34a-668e-4b26-acc4-fe555f3792b0"
+            },
+            "paramMappings": [
+              {
+                "paramPath": "request/httpContent/jsonValue/body/email",
+                "expression": {
+                  "type": "eventFieldRef",
+                  "fieldRef": "json://_%-tenantId-%/identification/core/email",
+                  "dataType": "string",
+                  "transition": "2129403084"
                 }
+              },
+              {
+                "paramPath": "request/httpContent/jsonValue/body/first name",
+                "expression": {
+                  "dataType": "string",
+                  "fieldRef": "json://_%-tenantId-%/identification/core/ecid",
+                  "transition": "2129403084",
+                  "type": "eventFieldRef"
+                }
+              },
+              {
+                "paramPath": "request/httpContent/jsonValue/body/last name",
+                "expression": {
+                  "dataType": "string",
+                  "type": "constant",
+                  "value": "Account Creation Flow"
+                }
+              }
+            ]
+          },
+          "transitions": [
+            {
+              "uid": "a8a0d90b-32cc-469f-be7b-f1cab05ebe4f",
+              "targetStep": "383bba12-727f-4adb-8536-fa50b6f6c8d2"
+            }
+          ]
+        },
+        {
+          "uid": "383bba12-727f-4adb-8536-fa50b6f6c8d2",
+          "nodeId": "383bba12-727f-4adb-8536-fa50b6f6c8d2",
+          "nodeName": "Wait",
+          "nodeType": "timer",
+          "schedulerActions": [
+            {
+              "type": "scheduledNotification",
+              "uid": "1a68f947-e0eb-4462-9723-3ca438cfc594",
+              "rule": {
+                "type": "delay",
+                "delay": "PT10S"
+              }
+            }
+          ],
+          "transitions": [
+            {
+              "uid": "b3f475d3-6990-48f3-b929-33a7979bd8d0",
+              "targetStep": "b25aa3b6-df35-4e8a-b5e3-01726699e852",
+              "name": "Wait",
+              "eventId": "scheduledNotificationReceived",
+              "actionUID": "1a68f947-e0eb-4462-9723-3ca438cfc594",
+              "nodeId": "383bba12-727f-4adb-8536-fa50b6f6c8d2"
+            }
+          ]
+        },
+        {
+          "uid": "b25aa3b6-df35-4e8a-b5e3-01726699e852",
+          "nodeId": "b25aa3b6-df35-4e8a-b5e3-01726699e852",
+          "nodeName": "Message - Account Creation Confirmation",
+          "nodeType": "action",
+          "action": {
+            "uid": "4fd40edb-e1b3-4525-b46f-1e0c382f4950",
+            "type": "unitaryMessageAction",
+            "messageId": "7897eb0c-6f89-4c85-8493-32ed19d1fce8",
+            "profileAttributes": [
+              "person.name.firstName",
+              "_%-tenantId-%.identification.core.loyaltyId",
+              "consents",
+              "_%-tenantId-%.identification",
+              "personalEmail.address"
             ],
-            "ui": {
-                "nodes": {
-                    "start": {
-                        "id": "start",
-                        "x": 20,
-                        "y": 300,
-                        "size": 8,
-                        "label": "start",
-                        "icon": "",
-                        "name": "",
-                        "type": "start"
-                    },
-                    "78819947-46b9-4a95-98c1-7436a81f84ce": {
-                        "id": "78819947-46b9-4a95-98c1-7436a81f84ce",
-                        "x": 159,
-                        "y": 300,
-                        "size": 48,
-                        "label": "Luma_AccountCreation",
-                        "icon": "event",
-                        "subtype": "unitary",
-                        "name": "a02b5bda-b7c2-4e5a-bca3-fec1632c6c38",
-                        "type": "event",
-                        "data": {
-                            "label": "",
-                            "description": "",
-                            "uid": "a02b5bda-b7c2-4e5a-bca3-fec1632c6c38",
-                            "eventId": "e18f3502fc777991d5519422f8311e8b73090dfec5a102434f87ff0eaae760c9"
-                        }
-                    },
-                    "b1875f6f-3a02-4e8c-ad30-265c438cab7b_5da9e34a-668e-4b26-acc4-fe555f3792b0": {
-                        "id": "b1875f6f-3a02-4e8c-ad30-265c438cab7b_5da9e34a-668e-4b26-acc4-fe555f3792b0",
-                        "x": 318,
-                        "y": 300,
-                        "size": 48,
-                        "label": "WebhookAction",
-                        "icon": "customAction",
-                        "subtype": "custom",
-                        "name": "custom",
-                        "type": "action",
-                        "data": {
-                            "uid": "5da9e34a-668e-4b26-acc4-fe555f3792b0",
-                            "label": "",
-                            "description": "",
-                            "fallbackOnTimeoutOrError": false,
-                            "paramMappings": [
-                                {
-                                    "label": "email",
-                                    "paramPath": "request/httpContent/jsonValue/body/email",
-                                    "stringExpression": "@{2129403084._%-tenantId-%.identification.core.email}",
-                                    "expression": {
-                                        "type": "eventFieldRef",
-                                        "fieldRef": "json://_%-tenantId-%/identification/core/email",
-                                        "dataType": "string",
-                                        "transition": "2129403084"
-                                    }
-                                },
-                                {
-                                    "label": "firstName",
-                                    "paramPath": "request/httpContent/jsonValue/body/first name",
-                                    "stringExpression": "@{Luma_AccountCreation._%-tenantId-%.identification.core.ecid}",
-                                    "expression": {
-                                        "dataType": "string",
-                                        "fieldRef": "json://_%-tenantId-%/identification/core/ecid",
-                                        "transition": "2129403084",
-                                        "type": "eventFieldRef"
-                                    }
-                                },
-                                {
-                                    "label": "lastName",
-                                    "paramPath": "request/httpContent/jsonValue/body/last name",
-                                    "stringExpression": "'Account Creation Flow'",
-                                    "expression": {
-                                        "dataType": "string",
-                                        "type": "constant",
-                                        "value": "Account Creation Flow"
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    "383bba12-727f-4adb-8536-fa50b6f6c8d2": {
-                        "id": "383bba12-727f-4adb-8536-fa50b6f6c8d2",
-                        "x": 477,
-                        "y": 300,
-                        "size": 48,
-                        "label": "Wait",
-                        "icon": "clock",
-                        "name": "timer",
-                        "type": "timer",
-                        "data": {
-                            "type": "delay",
-                            "timerId": "1a68f947-e0eb-4462-9723-3ca438cfc594",
-                            "delay": "PT10S",
-                            "fallbackOnTimeoutOrError": false
-                        }
-                    },
-                    "b25aa3b6-df35-4e8a-b5e3-01726699e852": {
-                        "id": "b25aa3b6-df35-4e8a-b5e3-01726699e852",
-                        "x": 635,
-                        "y": 301,
-                        "size": 48,
-                        "label": "Message",
-                        "icon": "messageAssist",
-                        "name": "messageAssist",
-                        "type": "action",
-                        "data": {
-                            "nodeType": "action",
-                            "actionType": "messageAssist",
-                            "actionUID": "4fd40edb-e1b3-4525-b46f-1e0c382f4950",
-                            "label": "Account Creation Confirmation",
-                            "description": "",
-                            "message": "7897eb0c-6f89-4c85-8493-32ed19d1fce8",
-                            "messageLabel": " Luma - Account Creation",
-                            "profileAttributes": [
-                                "_%-tenantId-%.identification.core.loyaltyId",
-                                "_%-tenantId-%.identification",
-                                "person.name.firstName"
-                            ],
-                            "attributes": [
-                                "person.name.firstName",
-                                "_%-tenantId-%.identification.core.loyaltyId",
-                                "consents",
-                                "_%-tenantId-%.identification",
-                                "personalEmail.address"
-                            ],
-                            "channelOverrides": [
-                                {
-                                    "name": "address",
-                                    "expression": {
-                                        "plainText": "personalEmail.address",
-                                        "expression": {
-                                            "dataType": "string",
-                                            "type": "constant",
-                                            "value": "personalEmail.address"
-                                        },
-                                        "parameters": []
-                                    },
-                                    "channel": "email",
-                                    "isDefaultValue": true
-                                }
-                            ],
-                            "fallbackOnTimeoutOrError": false,
-                            "channels": [
-                                "email"
-                            ],
-                            "isBurstCompatible": false
-                        }
-                    },
-                    "213b735b-6351-4603-8930-2d8b4fc4cf0f": {
-                        "id": "213b735b-6351-4603-8930-2d8b4fc4cf0f",
-                        "x": 820,
-                        "y": 301,
-                        "size": 48,
-                        "label": "Message",
-                        "icon": "messageAssist",
-                        "name": "messageAssist",
-                        "type": "action",
-                        "data": {
-                            "nodeType": "action",
-                            "actionType": "messageAssist",
-                            "actionUID": "be5652b8-ce8c-4f1f-83da-d2c894eefbeb",
-                            "label": "New Summer Collection",
-                            "description": "",
-                            "message": "98532110-a66a-4766-888b-aea1fa7665e0",
-                            "messageLabel": " Luma - New Summer Collection",
-                            "profileAttributes": [
-                                "person.name.firstName"
-                            ],
-                            "attributes": [
-                                "person.name.firstName",
-                                "segmentMembership.ups.2c9b14f1-e77f-4019-8772-66a2eb7b14c5.status",
-                                "segmentMembership.ups.b8852db9-1948-46f4-81ef-088eb5afa57f.status",
-                                "consents",
-                                "segmentMembership.ups.90f87dc3-868a-45bf-a6e0-2131196c4478.status",
-                                "segmentMembership.ups.bfe80623-d9df-425c-ad95-173091119238.status",
-                                "personalEmail.address"
-                            ],
-                            "channelOverrides": [
-                                {
-                                    "name": "address",
-                                    "expression": {
-                                        "plainText": "personalEmail.address",
-                                        "expression": {
-                                            "dataType": "string",
-                                            "type": "constant",
-                                            "value": "personalEmail.address"
-                                        },
-                                        "parameters": []
-                                    },
-                                    "channel": "email",
-                                    "isDefaultValue": true
-                                }
-                            ],
-                            "fallbackOnTimeoutOrError": false,
-                            "channels": [
-                                "email"
-                            ],
-                            "isBurstCompatible": false
-                        }
-                    },
-                    "cc076c0a-4b6d-4a81-bb44-a7ec5b6d77f2": {
-                        "id": "cc076c0a-4b6d-4a81-bb44-a7ec5b6d77f2",
-                        "x": 979,
-                        "y": 301,
-                        "size": 48,
-                        "label": "End",
-                        "icon": "stopCircle",
-                        "name": "end",
-                        "type": "end",
-                        "data": {
-                            "name": "End",
-                            "label": ""
-                        }
-                    }
-                },
-                "edges": {
-                    "fa7abbfe-e2db-4f88-9cd8-2c91bcce889c": {
-                        "id": "fa7abbfe-e2db-4f88-9cd8-2c91bcce889c",
-                        "label": "",
-                        "source": {
-                            "x": 20,
-                            "y": 300,
-                            "size": 8,
-                            "elementId": "start"
-                        },
-                        "target": {
-                            "x": 159,
-                            "y": 300,
-                            "size": 48,
-                            "elementId": "78819947-46b9-4a95-98c1-7436a81f84ce"
-                        },
-                        "connected": true,
-                        "labelBoxWidth": 0
-                    },
-                    "5fe50cd1-e85c-4c53-b676-e4ed64032439": {
-                        "id": "5fe50cd1-e85c-4c53-b676-e4ed64032439",
-                        "label": "",
-                        "source": {
-                            "x": 159,
-                            "y": 300,
-                            "size": 48,
-                            "elementId": "78819947-46b9-4a95-98c1-7436a81f84ce"
-                        },
-                        "target": {
-                            "x": 318,
-                            "y": 300,
-                            "size": 48,
-                            "elementId": "b1875f6f-3a02-4e8c-ad30-265c438cab7b_5da9e34a-668e-4b26-acc4-fe555f3792b0"
-                        },
-                        "connected": true,
-                        "labelBoxWidth": 0
-                    },
-                    "03706b69-57bd-4a92-9a4f-5a21d28e0e89": {
-                        "id": "03706b69-57bd-4a92-9a4f-5a21d28e0e89",
-                        "label": "",
-                        "source": {
-                            "x": 318,
-                            "y": 300,
-                            "size": 48,
-                            "elementId": "b1875f6f-3a02-4e8c-ad30-265c438cab7b_5da9e34a-668e-4b26-acc4-fe555f3792b0"
-                        },
-                        "target": {
-                            "x": 477,
-                            "y": 300,
-                            "size": 48,
-                            "elementId": "383bba12-727f-4adb-8536-fa50b6f6c8d2"
-                        },
-                        "connected": true,
-                        "labelBoxWidth": 0
-                    },
-                    "564dc30c-887f-4322-ad92-b60355aefbe3": {
-                        "id": "564dc30c-887f-4322-ad92-b60355aefbe3",
-                        "label": "10 sec",
-                        "source": {
-                            "x": 477,
-                            "y": 300,
-                            "size": 48,
-                            "elementId": "383bba12-727f-4adb-8536-fa50b6f6c8d2"
-                        },
-                        "target": {
-                            "x": 635,
-                            "y": 301,
-                            "size": 48,
-                            "elementId": "b25aa3b6-df35-4e8a-b5e3-01726699e852"
-                        },
-                        "connected": true,
-                        "labelBoxWidth": 59
-                    },
-                    "2aae4b1c-941e-4418-ab7b-b6517fdb2bd9": {
-                        "id": "2aae4b1c-941e-4418-ab7b-b6517fdb2bd9",
-                        "label": "",
-                        "source": {
-                            "x": 635,
-                            "y": 301,
-                            "size": 48,
-                            "elementId": "b25aa3b6-df35-4e8a-b5e3-01726699e852"
-                        },
-                        "target": {
-                            "x": 820,
-                            "y": 301,
-                            "size": 48,
-                            "elementId": "213b735b-6351-4603-8930-2d8b4fc4cf0f"
-                        },
-                        "connected": true,
-                        "labelBoxWidth": 0
-                    },
-                    "a91d3a12-63c4-4126-964d-476b3aec6578": {
-                        "id": "a91d3a12-63c4-4126-964d-476b3aec6578",
-                        "label": "",
-                        "source": {
-                            "x": 820,
-                            "y": 301,
-                            "size": 48,
-                            "elementId": "213b735b-6351-4603-8930-2d8b4fc4cf0f"
-                        },
-                        "target": {
-                            "x": 979,
-                            "y": 301,
-                            "size": 48,
-                            "elementId": "cc076c0a-4b6d-4a81-bb44-a7ec5b6d77f2"
-                        },
-                        "connected": true,
-                        "labelBoxWidth": 0
-                    }
-                }
-            },
-            "keyNamespace": "ECID",
-            "timezone": {
-                "useProfileTimezone": true,
-                "zoneId": "Asia/Calcutta"
-            },
-            "isBurst": false,
-            "reentrancePolicy": "reentrance",
-            "authoringFormatVersion": "1.0",
-            "orgId": "%-orgId-%",
-            "tenantId": "%-tenantId-%"
-            "testConfig": {
-                "timerPolicy": "timerDefaultDuration",
-                "timerDefaultDurationInSecs": 10
+            "channelOverrides": {}
+          },
+          "transitions": [
+            {
+              "uid": "0970e8a2-f88e-42a1-a8be-f425ad659a56",
+              "targetStep": "213b735b-6351-4603-8930-2d8b4fc4cf0f"
             }
+          ]
         },
-        "events": [
+        {
+          "uid": "213b735b-6351-4603-8930-2d8b4fc4cf0f",
+          "nodeId": "213b735b-6351-4603-8930-2d8b4fc4cf0f",
+          "nodeName": "Message - New Summer Collection",
+          "nodeType": "action",
+          "action": {
+            "uid": "be5652b8-ce8c-4f1f-83da-d2c894eefbeb",
+            "type": "unitaryMessageAction",
+            "messageId": "98532110-a66a-4766-888b-aea1fa7665e0",
+            "profileAttributes": [
+              "person.name.firstName",
+              "segmentMembership.ups.2c9b14f1-e77f-4019-8772-66a2eb7b14c5.status",
+              "segmentMembership.ups.b8852db9-1948-46f4-81ef-088eb5afa57f.status",
+              "consents",
+              "segmentMembership.ups.90f87dc3-868a-45bf-a6e0-2131196c4478.status",
+              "segmentMembership.ups.bfe80623-d9df-425c-ad95-173091119238.status",
+              "personalEmail.address"
+            ],
+            "channelOverrides": {}
+          },
+          "transitions": [
             {
-                "authoringFormatVersion": "1.0",
-                "eventType": "dcsExternal",
-                "name": "Luma_AccountCreation",
-                "description": "",
-                "namespaceId": "ECID",
-                "eventIdType": "systemGenerated",
-                "eventKeyFormula": {
+              "uid": "800632e2-527b-4275-85b8-aff33ba465e3",
+              "targetStep": "cc076c0a-4b6d-4a81-bb44-a7ec5b6d77f2"
+            }
+          ]
+        },
+        {
+          "uid": "cc076c0a-4b6d-4a81-bb44-a7ec5b6d77f2",
+          "nodeId": "cc076c0a-4b6d-4a81-bb44-a7ec5b6d77f2",
+          "nodeName": "End",
+          "nodeType": "end",
+          "transitions": []
+        }
+      ],
+      "ui": {
+        "nodes": {
+          "start": {
+            "id": "start",
+            "x": 20,
+            "y": 300,
+            "size": 8,
+            "label": "start",
+            "icon": "",
+            "name": "",
+            "type": "start"
+          },
+          "78819947-46b9-4a95-98c1-7436a81f84ce": {
+            "id": "78819947-46b9-4a95-98c1-7436a81f84ce",
+            "x": 159,
+            "y": 300,
+            "size": 48,
+            "label": "Luma_AccountCreation",
+            "icon": "event",
+            "subtype": "unitary",
+            "name": "a02b5bda-b7c2-4e5a-bca3-fec1632c6c38",
+            "type": "event",
+            "data": {
+              "label": "",
+              "description": "",
+              "uid": "a02b5bda-b7c2-4e5a-bca3-fec1632c6c38",
+              "eventId": "e18f3502fc777991d5519422f8311e8b73090dfec5a102434f87ff0eaae760c9"
+            }
+          },
+          "b1875f6f-3a02-4e8c-ad30-265c438cab7b_5da9e34a-668e-4b26-acc4-fe555f3792b0": {
+            "id": "b1875f6f-3a02-4e8c-ad30-265c438cab7b_5da9e34a-668e-4b26-acc4-fe555f3792b0",
+            "x": 318,
+            "y": 300,
+            "size": 48,
+            "label": "WebhookAction",
+            "icon": "customAction",
+            "subtype": "custom",
+            "name": "custom",
+            "type": "action",
+            "data": {
+              "uid": "5da9e34a-668e-4b26-acc4-fe555f3792b0",
+              "label": "",
+              "description": "",
+              "fallbackOnTimeoutOrError": false,
+              "paramMappings": [
+                {
+                  "label": "email",
+                  "paramPath": "request/httpContent/jsonValue/body/email",
+                  "stringExpression": "@{2129403084._%-tenantId-%.identification.core.email}",
+                  "expression": {
                     "type": "eventFieldRef",
-                    "fieldRef": "json://_%-tenantId-%/identification/core/ecid",
+                    "fieldRef": "json://_%-tenantId-%/identification/core/email",
                     "dataType": "string",
-                    "event": "e18f3502fc777991d5519422f8311e8b73090dfec5a102434f87ff0eaae760c9"
+                    "transition": "2129403084"
+                  }
                 },
-                "eventCategory": "unitary",
-                "ui": {
+                {
+                  "label": "firstName",
+                  "paramPath": "request/httpContent/jsonValue/body/first name",
+                  "stringExpression": "@{Luma_AccountCreation._%-tenantId-%.identification.core.ecid}",
+                  "expression": {
+                    "dataType": "string",
+                    "fieldRef": "json://_%-tenantId-%/identification/core/ecid",
+                    "transition": "2129403084",
+                    "type": "eventFieldRef"
+                  }
+                },
+                {
+                  "label": "lastName",
+                  "paramPath": "request/httpContent/jsonValue/body/last name",
+                  "stringExpression": "'Account Creation Flow'",
+                  "expression": {
+                    "dataType": "string",
+                    "type": "constant",
+                    "value": "Account Creation Flow"
+                  }
+                }
+              ]
+            }
+          },
+          "383bba12-727f-4adb-8536-fa50b6f6c8d2": {
+            "id": "383bba12-727f-4adb-8536-fa50b6f6c8d2",
+            "x": 477,
+            "y": 300,
+            "size": 48,
+            "label": "Wait",
+            "icon": "clock",
+            "name": "timer",
+            "type": "timer",
+            "data": {
+              "type": "delay",
+              "timerId": "1a68f947-e0eb-4462-9723-3ca438cfc594",
+              "delay": "PT10S",
+              "fallbackOnTimeoutOrError": false
+            }
+          },
+          "b25aa3b6-df35-4e8a-b5e3-01726699e852": {
+            "id": "b25aa3b6-df35-4e8a-b5e3-01726699e852",
+            "x": 635,
+            "y": 301,
+            "size": 48,
+            "label": "Message",
+            "icon": "messageAssist",
+            "name": "messageAssist",
+            "type": "action",
+            "data": {
+              "nodeType": "action",
+              "actionType": "messageAssist",
+              "actionUID": "4fd40edb-e1b3-4525-b46f-1e0c382f4950",
+              "label": "Account Creation Confirmation",
+              "description": "",
+              "message": "7897eb0c-6f89-4c85-8493-32ed19d1fce8",
+              "messageLabel": " Luma - Account Creation",
+              "profileAttributes": [
+                "_%-tenantId-%.identification.core.loyaltyId",
+                "_%-tenantId-%.identification",
+                "person.name.firstName"
+              ],
+              "attributes": [
+                "person.name.firstName",
+                "_%-tenantId-%.identification.core.loyaltyId",
+                "consents",
+                "_%-tenantId-%.identification",
+                "personalEmail.address"
+              ],
+              "channelOverrides": [
+                {
+                  "name": "address",
+                  "expression": {
+                    "plainText": "personalEmail.address",
                     "expression": {
-                        "condition": "",
-                        "eventKeyFormula": "@{newEvent._%-tenantId-%.identification.core.ecid}",
-                        "eventQualificationCondition": ""
-                    }
-                },
-                "fields": {
-                    "experienceevent": {
-                        "dataType": "composite",
-                        "description": "Demo System - Event Schema for Website (Global v1.1)",
-                        "title": "Demo System - Event Schema for Website (Global v1.1)",
-                        "xdmEntity": {
-                            "altId": "_%-tenantId-%.schemas.d9b88a044ad96154637965a97ed63c7b20bdf2ab3b4f642e",
-                            "classAltId": "_xdm.context.experienceevent",
-                            "classVersion": 1,
-                            "displayName": "Demo System - Event Schema for Website (Global v1.1)",
-                            "id": "https://ns.adobe.com/%-tenantId-%/schemas/d9b88a044ad96154637965a97ed63c7b20bdf2ab3b4f642e",
-                            "isTimeSeries": true,
-                            "type": "schema",
-                            "version": 1,
-                            "relatedClassAltId": "_xdm.context.profile",
-                            "relatedClassVersion": 1
-                        },
-                        "fields": {
-                            "_%-tenantId-%": {
-                                "dataType": "composite",
-                                "mandatory": true,
-                                "fields": {
-                                    "identification": {
-                                        "dataType": "composite",
-                                        "title": "identification",
-                                        "mandatory": true,
-                                        "fields": {
-                                            "core": {
-                                                "dataType": "composite",
-                                                "title": "core",
-                                                "mandatory": true,
-                                                "fields": {
-                                                    "ecid": {
-                                                        "dataType": "string",
-                                                        "title": "ecid",
-                                                        "mandatory": true,
-                                                        "isIdentity": true,
-                                                        "isPrimaryIdentity": true,
-                                                        "namespace": "ECID"
-                                                    },
-                                                    "email": {
-                                                        "dataType": "string",
-                                                        "title": "email",
-                                                        "isIdentity": true,
-                                                        "namespace": "Email"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            "_id": {
-                                "dataType": "string",
-                                "title": "Identifier",
-                                "mandatory": true
-                            },
-                            "_experience": {
-                                "dataType": "composite",
-                                "fields": {
-                                    "campaign": {
-                                        "dataType": "composite",
-                                        "fields": {
-                                            "orchestration": {
-                                                "dataType": "composite",
-                                                "title": "Campaign Orchestration for creating user journey.",
-                                                "fields": {
-                                                    "eventID": {
-                                                        "dataType": "string",
-                                                        "title": "Event ID"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            "timestamp": {
-                                "dataType": "dateTime",
-                                "title": "Timestamp",
-                                "mandatory": true
-                            }
-                        }
-                    }
-                },
-                "orgId": "%-orgId-%",
-            "tenantId": "%-tenantId-%"
-                "eventId": "e18f3502fc777991d5519422f8311e8b73090dfec5a102434f87ff0eaae760c9",
-                "uid": "a02b5bda-b7c2-4e5a-bca3-fec1632c6c38_4f525331-338a-47e6-9253-31338a47e63d"
-            }
-        ],
-        "dataProviders": [],
-        "dataEntities": [],
-        "customActions": [
-            {
-                "uid": "5da9e34a-668e-4b26-acc4-fe555f3792b0",
-                "name": "WebhookAction",
-                "description": "",
-                "actionType": "customHttpAction",
-                "url": "https://webhook.site/669ccb85-cc16-4a00-a38c-e1a8b7774e97",
-                "authentication": {
-                    "type": "none"
-                },
-                "request": {
-                    "method": "POST",
-                    "body": {
-                        "contentType": "application/json",
-                        "charset": "UTF-8",
-                        "jsonValue": {
-                            "body": {
-                                "email": {
-                                    "dataType": "string",
-                                    "toBeMapped": true,
-                                    "label": "email"
-                                },
-                                "first name": {
-                                    "dataType": "string",
-                                    "toBeMapped": true,
-                                    "label": "firstName"
-                                },
-                                "last name": {
-                                    "dataType": "string",
-                                    "toBeMapped": true,
-                                    "label": "lastName"
-                                }
-                            }
-                        }
+                      "dataType": "string",
+                      "type": "constant",
+                      "value": "personalEmail.address"
                     },
-                    "headers": {}
-                },
-                "orgId": "%-orgId-%"
+                    "parameters": []
+                  },
+                  "channel": "email",
+                  "isDefaultValue": true
+                }
+              ],
+              "fallbackOnTimeoutOrError": false,
+              "channels": [
+                "email"
+              ],
+              "isBurstCompatible": false
             }
-        ]
-    }
+          },
+          "213b735b-6351-4603-8930-2d8b4fc4cf0f": {
+            "id": "213b735b-6351-4603-8930-2d8b4fc4cf0f",
+            "x": 820,
+            "y": 301,
+            "size": 48,
+            "label": "Message",
+            "icon": "messageAssist",
+            "name": "messageAssist",
+            "type": "action",
+            "data": {
+              "nodeType": "action",
+              "actionType": "messageAssist",
+              "actionUID": "be5652b8-ce8c-4f1f-83da-d2c894eefbeb",
+              "label": "New Summer Collection",
+              "description": "",
+              "message": "98532110-a66a-4766-888b-aea1fa7665e0",
+              "messageLabel": " Luma - New Summer Collection",
+              "profileAttributes": [
+                "person.name.firstName"
+              ],
+              "attributes": [
+                "person.name.firstName",
+                "segmentMembership.ups.2c9b14f1-e77f-4019-8772-66a2eb7b14c5.status",
+                "segmentMembership.ups.b8852db9-1948-46f4-81ef-088eb5afa57f.status",
+                "consents",
+                "segmentMembership.ups.90f87dc3-868a-45bf-a6e0-2131196c4478.status",
+                "segmentMembership.ups.bfe80623-d9df-425c-ad95-173091119238.status",
+                "personalEmail.address"
+              ],
+              "channelOverrides": [
+                {
+                  "name": "address",
+                  "expression": {
+                    "plainText": "personalEmail.address",
+                    "expression": {
+                      "dataType": "string",
+                      "type": "constant",
+                      "value": "personalEmail.address"
+                    },
+                    "parameters": []
+                  },
+                  "channel": "email",
+                  "isDefaultValue": true
+                }
+              ],
+              "fallbackOnTimeoutOrError": false,
+              "channels": [
+                "email"
+              ],
+              "isBurstCompatible": false
+            }
+          },
+          "cc076c0a-4b6d-4a81-bb44-a7ec5b6d77f2": {
+            "id": "cc076c0a-4b6d-4a81-bb44-a7ec5b6d77f2",
+            "x": 979,
+            "y": 301,
+            "size": 48,
+            "label": "End",
+            "icon": "stopCircle",
+            "name": "end",
+            "type": "end",
+            "data": {
+              "name": "End",
+              "label": ""
+            }
+          }
+        },
+        "edges": {
+          "fa7abbfe-e2db-4f88-9cd8-2c91bcce889c": {
+            "id": "fa7abbfe-e2db-4f88-9cd8-2c91bcce889c",
+            "label": "",
+            "source": {
+              "x": 20,
+              "y": 300,
+              "size": 8,
+              "elementId": "start"
+            },
+            "target": {
+              "x": 159,
+              "y": 300,
+              "size": 48,
+              "elementId": "78819947-46b9-4a95-98c1-7436a81f84ce"
+            },
+            "connected": true,
+            "labelBoxWidth": 0
+          },
+          "5fe50cd1-e85c-4c53-b676-e4ed64032439": {
+            "id": "5fe50cd1-e85c-4c53-b676-e4ed64032439",
+            "label": "",
+            "source": {
+              "x": 159,
+              "y": 300,
+              "size": 48,
+              "elementId": "78819947-46b9-4a95-98c1-7436a81f84ce"
+            },
+            "target": {
+              "x": 318,
+              "y": 300,
+              "size": 48,
+              "elementId": "b1875f6f-3a02-4e8c-ad30-265c438cab7b_5da9e34a-668e-4b26-acc4-fe555f3792b0"
+            },
+            "connected": true,
+            "labelBoxWidth": 0
+          },
+          "03706b69-57bd-4a92-9a4f-5a21d28e0e89": {
+            "id": "03706b69-57bd-4a92-9a4f-5a21d28e0e89",
+            "label": "",
+            "source": {
+              "x": 318,
+              "y": 300,
+              "size": 48,
+              "elementId": "b1875f6f-3a02-4e8c-ad30-265c438cab7b_5da9e34a-668e-4b26-acc4-fe555f3792b0"
+            },
+            "target": {
+              "x": 477,
+              "y": 300,
+              "size": 48,
+              "elementId": "383bba12-727f-4adb-8536-fa50b6f6c8d2"
+            },
+            "connected": true,
+            "labelBoxWidth": 0
+          },
+          "564dc30c-887f-4322-ad92-b60355aefbe3": {
+            "id": "564dc30c-887f-4322-ad92-b60355aefbe3",
+            "label": "10 sec",
+            "source": {
+              "x": 477,
+              "y": 300,
+              "size": 48,
+              "elementId": "383bba12-727f-4adb-8536-fa50b6f6c8d2"
+            },
+            "target": {
+              "x": 635,
+              "y": 301,
+              "size": 48,
+              "elementId": "b25aa3b6-df35-4e8a-b5e3-01726699e852"
+            },
+            "connected": true,
+            "labelBoxWidth": 59
+          },
+          "2aae4b1c-941e-4418-ab7b-b6517fdb2bd9": {
+            "id": "2aae4b1c-941e-4418-ab7b-b6517fdb2bd9",
+            "label": "",
+            "source": {
+              "x": 635,
+              "y": 301,
+              "size": 48,
+              "elementId": "b25aa3b6-df35-4e8a-b5e3-01726699e852"
+            },
+            "target": {
+              "x": 820,
+              "y": 301,
+              "size": 48,
+              "elementId": "213b735b-6351-4603-8930-2d8b4fc4cf0f"
+            },
+            "connected": true,
+            "labelBoxWidth": 0
+          },
+          "a91d3a12-63c4-4126-964d-476b3aec6578": {
+            "id": "a91d3a12-63c4-4126-964d-476b3aec6578",
+            "label": "",
+            "source": {
+              "x": 820,
+              "y": 301,
+              "size": 48,
+              "elementId": "213b735b-6351-4603-8930-2d8b4fc4cf0f"
+            },
+            "target": {
+              "x": 979,
+              "y": 301,
+              "size": 48,
+              "elementId": "cc076c0a-4b6d-4a81-bb44-a7ec5b6d77f2"
+            },
+            "connected": true,
+            "labelBoxWidth": 0
+          }
+        }
+      },
+      "keyNamespace": "ECID",
+      "timezone": {
+        "useProfileTimezone": true,
+        "zoneId": "Asia/Calcutta"
+      },
+      "isBurst": false,
+      "reentrancePolicy": "reentrance",
+      "authoringFormatVersion": "1.0",
+      "orgId": "%-orgId-%",
+      "tenantId": "%-tenantId-%",
+      "testConfig": {
+        "timerPolicy": "timerDefaultDuration",
+        "timerDefaultDurationInSecs": 10
+      }
+    },
+    "events": [
+      {
+        "authoringFormatVersion": "1.0",
+        "eventType": "dcsExternal",
+        "name": "Luma_AccountCreation",
+        "description": "",
+        "namespaceId": "ECID",
+        "eventIdType": "systemGenerated",
+        "eventKeyFormula": {
+          "type": "eventFieldRef",
+          "fieldRef": "json://_%-tenantId-%/identification/core/ecid",
+          "dataType": "string",
+          "event": "e18f3502fc777991d5519422f8311e8b73090dfec5a102434f87ff0eaae760c9"
+        },
+        "eventCategory": "unitary",
+        "ui": {
+          "expression": {
+            "condition": "",
+            "eventKeyFormula": "@{newEvent._%-tenantId-%.identification.core.ecid}",
+            "eventQualificationCondition": ""
+          }
+        },
+        "fields": {
+          "experienceevent": {
+            "dataType": "composite",
+            "description": "Demo System - Event Schema for Website (Global v1.1)",
+            "title": "Demo System - Event Schema for Website (Global v1.1)",
+            "xdmEntity": {
+              "altId": "_%-tenantId-%.schemas.d9b88a044ad96154637965a97ed63c7b20bdf2ab3b4f642e",
+              "classAltId": "_xdm.context.experienceevent",
+              "classVersion": 1,
+              "displayName": "Demo System - Event Schema for Website (Global v1.1)",
+              "id": "https://ns.adobe.com/%-tenantId-%/schemas/d9b88a044ad96154637965a97ed63c7b20bdf2ab3b4f642e",
+              "isTimeSeries": true,
+              "type": "schema",
+              "version": 1,
+              "relatedClassAltId": "_xdm.context.profile",
+              "relatedClassVersion": 1
+            },
+            "fields": {
+              "_%-tenantId-%": {
+                "dataType": "composite",
+                "mandatory": true,
+                "fields": {
+                  "identification": {
+                    "dataType": "composite",
+                    "title": "identification",
+                    "mandatory": true,
+                    "fields": {
+                      "core": {
+                        "dataType": "composite",
+                        "title": "core",
+                        "mandatory": true,
+                        "fields": {
+                          "ecid": {
+                            "dataType": "string",
+                            "title": "ecid",
+                            "mandatory": true,
+                            "isIdentity": true,
+                            "isPrimaryIdentity": true,
+                            "namespace": "ECID"
+                          },
+                          "email": {
+                            "dataType": "string",
+                            "title": "email",
+                            "isIdentity": true,
+                            "namespace": "Email"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "_id": {
+                "dataType": "string",
+                "title": "Identifier",
+                "mandatory": true
+              },
+              "_experience": {
+                "dataType": "composite",
+                "fields": {
+                  "campaign": {
+                    "dataType": "composite",
+                    "fields": {
+                      "orchestration": {
+                        "dataType": "composite",
+                        "title": "Campaign Orchestration for creating user journey.",
+                        "fields": {
+                          "eventID": {
+                            "dataType": "string",
+                            "title": "Event ID"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "timestamp": {
+                "dataType": "dateTime",
+                "title": "Timestamp",
+                "mandatory": true
+              }
+            }
+          }
+        },
+        "orgId": "%-orgId-%",
+        "tenantId": "%-tenantId-%",
+        "eventId": "e18f3502fc777991d5519422f8311e8b73090dfec5a102434f87ff0eaae760c9",
+        "uid": "a02b5bda-b7c2-4e5a-bca3-fec1632c6c38_4f525331-338a-47e6-9253-31338a47e63d"
+      }
+    ],
+    "dataProviders": [],
+    "dataEntities": [],
+    "customActions": [
+      {
+        "uid": "5da9e34a-668e-4b26-acc4-fe555f3792b0",
+        "name": "WebhookAction",
+        "description": "",
+        "actionType": "customHttpAction",
+        "url": "https://webhook.site/669ccb85-cc16-4a00-a38c-e1a8b7774e97",
+        "authentication": {
+          "type": "none"
+        },
+        "request": {
+          "method": "POST",
+          "body": {
+            "contentType": "application/json",
+            "charset": "UTF-8",
+            "jsonValue": {
+              "body": {
+                "email": {
+                  "dataType": "string",
+                  "toBeMapped": true,
+                  "label": "email"
+                },
+                "first name": {
+                  "dataType": "string",
+                  "toBeMapped": true,
+                  "label": "firstName"
+                },
+                "last name": {
+                  "dataType": "string",
+                  "toBeMapped": true,
+                  "label": "lastName"
+                }
+              }
+            }
+          },
+          "headers": {}
+        },
+        "orgId": "%-orgId-%"
+      }
+    ]
+  }
 }
