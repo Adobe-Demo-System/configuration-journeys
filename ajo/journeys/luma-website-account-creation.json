@@ -123,7 +123,7 @@
           "action": {
             "uid": "4fd40edb-e1b3-4525-b46f-1e0c382f4950",
             "type": "unitaryMessageAction",
-            "messageId": "9de9c989-264c-42a9-b550-c80fa244de73",
+            "messageId": "%-Luma - Account Creation-%",
             "profileAttributes": [
               "person.name.firstName",
               "_%-tenantId-%.identification.core.loyaltyId",
@@ -148,7 +148,7 @@
           "action": {
             "uid": "be5652b8-ce8c-4f1f-83da-d2c894eefbeb",
             "type": "unitaryMessageAction",
-            "messageId": "50220a2d-d7d8-4726-8145-fff0769fc835",
+            "messageId": "%-Luma - New Summer Collection-%",
             "profileAttributes": [
               "person.name.firstName",
               "segmentMembership.ups.2c9b14f1-e77f-4019-8772-66a2eb7b14c5.status",
@@ -286,7 +286,7 @@
               "actionUID": "4fd40edb-e1b3-4525-b46f-1e0c382f4950",
               "label": "Account Creation Confirmation",
               "description": "",
-              "message": "9de9c989-264c-42a9-b550-c80fa244de73",
+              "message": "%-Luma - Account Creation-%",
               "messageLabel": "Luma - Account Creation",
               "profileAttributes": [
                 "_%-tenantId-%.identification.core.loyaltyId",
@@ -338,7 +338,7 @@
               "actionUID": "be5652b8-ce8c-4f1f-83da-d2c894eefbeb",
               "label": "New Summer Collection",
               "description": "",
-              "message": "50220a2d-d7d8-4726-8145-fff0769fc835",
+              "message": "%-Luma - New Summer Collection-%",
               "messageLabel": "Luma - New Summer Collection",
               "profileAttributes": [
                 "person.name.firstName"
